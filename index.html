@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valid</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <form action="https//www.google.com" class="center">
+        <h1>Form Validation</h1>
+        <label for="username">Username:</label>
+        <input type="text" placeholder="Enter Your Username" id="user-value" class="user" required>
+        <span id="alert"></span>    
+        <label for="email">Email Address:</label>
+        <input type="email" placeholder="Enter Your Email Address" id="email-value" class="email" required>
+        <span id="alert-1"></span>
+        <label for="password">Password:</label>
+        <input type="password" placeholder="Enter Your Password" id="pass-value" class="pass" required>
+        <span id="alert-2"></span>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" placeholder="Enter Your Confirm Password" id="conf-value" class="c-pass" required>
+        <span id="alert-3"></span>
+        <!-- <br> -->
+        <button type="button" onclick="change()" id="btn">Submit</button>
+    </form>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
