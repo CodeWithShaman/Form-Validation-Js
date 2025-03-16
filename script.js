@@ -31,22 +31,24 @@ function change() {
         message.style.fontWeight = '700'
     }
 // -----------------------Email---------------------------------------
-    if (emailValue.length >= 2) {
-        message1.innerText = 'Email is valid';
-        message1.style.color = 'green'
-        message1.style.fontSize = '17px'
-        message1.style.fontWeight = '700'
-    } else if(emailValue === "") {
-        message1.innerText = 'Enter your Email';
-        message1.style.color = 'red'
-        message1.style.fontSize = '17px'
-        message2.style.fontWeight = '700'
-    }else{
-        message1.innerText = 'Please enter a valid email address';
-        message1.style.color = 'red'
-        message1.style.fontSize = '17px'
-        message1.style.fontWeight = 'bold'
-    }
+// Regular expression for basic email validation
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (emailValue.trim() === "") {
+    message1.innerText = 'Enter your email';
+    message1.style.color = 'red';
+} else if (!emailPattern.test(emailValue)) {
+    message1.innerText = 'Please enter a valid email address';
+    message1.style.color = 'red';
+} else {
+    message1.innerText = 'Email is valid';
+    message1.style.color = 'green';
+}
+
+// Apply common styling
+message1.style.fontSize = '17px';
+message1.style.fontWeight = '700';
+
     // ---------------------------Password----------------------------------
     if (passValue.length >= 6) {
         message2.innerText = 'Password is valid';
@@ -65,21 +67,22 @@ function change() {
         message2.style.fontWeight = '700'
 }
  // ---------------------------Confirm Password----------------------------------
- if (confValue === passValue && confValue.length >= 6) {
-    message3.innerText = 'Confirm password matches';
-    message3.style.color = 'green'
-    message3.style.fontWeight = '700'
-    message3.style.fontWeight = '700'
-    message3.style.fontSize = '17px'
-} else if(confValue == "") {
-    message3.innerText = 'Passwords do not match';
-    message3.style.color = 'red'
-    message3.style.fontSize = '17px'
-    message3.style.fontWeight = '700'
-}else{
+ if (confValue === "") {
+    message3.innerText = 'Please confirm your password';
+    message3.style.color = 'red';
+} else if (confValue.length < 6) {
     message3.innerText = 'Confirm password must be at least 6 characters';
-    message3.style.color = 'red'
-    message3.style.fontSize = '17px'
-    message3.style.fontWeight = '700'
+    message3.style.color = 'red';
+} else if (confValue === passValue) {
+    message3.innerText = 'Confirm password matches';
+    message3.style.color = 'green';
+} else {
+    message3.innerText = 'Passwords do not match';
+    message3.style.color = 'red';
 }
+
+// Apply common styling
+message3.style.fontSize = '17px';
+message3.style.fontWeight = '700';
+
 };
